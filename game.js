@@ -1,3 +1,54 @@
+var player = {
+var items = [];
+var pickUp = function(){
+	this.items.push(item);
+}
+var drop = function(){
+	var pos = this.items.indexOf(item);
+	if(pos >=0){
+		this.items.splice(pos,1);
+		}
+	}
+}
+
+var interpret = function(string){
+	var action = [];
+	var object = [];
+	var t = string.trim();
+	var s = t.split(" ");
+	var shift = s.shift();
+	action.first = shift;
+	var new = s.join();
+	object.rest = new;
+	return object;
+}
+
+function execute(command){
+	var action = command.action;
+	var target = command.target;
+	var func = player[action];
+	func(target);
+}
+
+function report(result){
+	for(var i = 0; i<items.length; i++){
+		var item = document.querySelector('#inventory>ul');
+}
+
+function gameStep(){
+	var input = this.value;
+	var cmd = interpret(input);
+}	
+
+var gameStart = function(){
+	var inputBox = document.querySelector('input');
+	inputBox.addEventListener('keyup', gameStep);
+}
+
+window.onload = gameStart;	
+	
+		
+/*
 var runSomeTests = function(){
 	
 	var descrip = document.getElementById('descrip');
@@ -32,3 +83,4 @@ var runSomeTests = function(){
 };
 
 window.onload = runSomeTests;
+*/
