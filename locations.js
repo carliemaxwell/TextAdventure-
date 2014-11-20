@@ -7,14 +7,14 @@ function Location (name,description){
 }
 
 var location1 = new Location('kitchen', 'dirty dishes and old food');
-var location2 = new Location('bedroom', 'blood on the sheets');
-var location3 = new Location('bathroom', 'shower running');
+var location2 = new Location('master bedroom', 'blood on the sheets');
+var location3 = new Location('dining room', 'glasses shattered');
 locations.push(location1);
 locations.push(location2);
 locations.push(location3);
 
 var connections = [
-	[0,1,1],
+	[0,1,0],
 	[1,0,1],
 	[1,1,0]
 ];
@@ -24,10 +24,10 @@ var map = {
 	connections: connections
 }
 
-var test = function (num){
-	for(var i = 0; i < map.locations.length; i++){ //i is a counter for inside the row
-		if(map.connections[num][i] == 1){ //map.connections gets the property from the object, gets row with num, looks inside row with i loop
-			console.log(map.locations[num].name + " is connected to " + map.locations[i].name); //map.locations[num].name gets name property of row and connects it to i room
+var test = function (rowNum){ //when given row num it will give you the horizontal number aka which row it is
+	for(var x = 0; x < map.locations.length; x++){ //x is a counter for inside the row
+		if(map.connections[rowNum][x] == 1){ //map.connections gets the property from the object, gets row with num, looks inside row with x loop
+			console.log(map.locations[rowNum].name + " is connected to " + map.locations[x].name); //map.locations[rowNum].name gets name property of row as horizontal number and connects it to x row which is the vertical number, like a grid
 		}
 	}
 }		
