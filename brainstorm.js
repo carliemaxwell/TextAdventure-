@@ -1,6 +1,21 @@
 //how do you know where the player is?
 //make other players
 //pick up other weapons from other players
+//add in lab 10 to run the game
+
+/*var player = {
+var items = [];
+var pickUp = function(item){
+	this.items.push(item);
+}
+var drop = function(){
+	var pos = this.items.indexOf(item);
+	if(pos >=0){
+		this.items.splice(pos,1);
+		}
+	}
+}
+/*
 
 var runSomeTests = function(){
 	
