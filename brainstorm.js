@@ -1,3 +1,7 @@
+//how do you know where the player is?
+//make other players
+//pick up other weapons from other players
+
 var runSomeTests = function(){
 	
 	var descrip = document.getElementById('descrip');
@@ -11,49 +15,12 @@ var runSomeTests = function(){
 	for (i=0; i<headings.length; i++){
 		console.log(headings[i].innerHTML);
 	}
-	
-var location1 = new Location('kitchen', 'dirty dishes and old 
-food');
-var location2 = new Location('master bedroom', 'blood on the 
-sheets');
-var location3 = new Location('dining room', 'glasses shattered');
-
-locations.push(location1);
-locations.push(location2);
-locations.push(location3);
-
-var connections = [
-	[0,1,0],
-	[1,0,1],
-	[1,1,0]
-];
-
-var map = {
-	locations: locations,
-	connections: connections
-}
-
-var test = function (rowNum){ //when given row num it will give you the 
-horizontal number aka which row it is
-	for(var x = 0; x < map.locations.length; x++){ //x is a counter 
-for inside the row
-		if(map.connections[rowNum][x] == 1){ //map.connections 
-gets the property from the object, gets row with num, looks inside row 
-with x loop
-			console.log(map.locations[rowNum].name + " is 
-connected to " + map.locations[x].name); //map.locations[rowNum].name 
-gets name property of row as horizontal number and connects it to x row 
-which is the vertical number, like a grid
-		}
-	}
-}		
-
 
 	var output = document.getElementById('scene');
-	output.innerHTML = 'You and 5 other friends are left on a mysterious island after a nearly fatal plane crash. What will you do to survive?';
+	output.innerHTML = 'You went to a dinner party and have been trapped in the house by the owner';
 	
 	var title = document.querySelectorAll('header>h1');
-	title[0].innerHTML = 'Lost';
+	title[0].innerHTML = 'Clue take 2';
 
 	var listOfItems = document.querySelector('#inventory > ul');
         var item = document.createElement('li');
@@ -120,3 +87,41 @@ window.onload = runSomeTests;
 
 //player[action](target)
 
+/* var connection = [
+	[0,0,0],
+];
+map.connect('beach','jungle'); //connects the 3 to eachother
+map.connect('jungle','cliff');
+map.connect('cliff','beach');
+*/
+
+/*var map = {
+	locations:[],
+	connections: [..],
+	connect: function(loc1,loc2){
+		var loc1num = this.locations.indexOf(loc1);
+		var loc2num = this.locations.indexOf(loc2);
+		this.connections[loc1num][loc2num] = 1;
+		this.connections[loc2num][loc1num] = 1;
+	}
+}
+*/
+
+//loop through properties of an object
+	//for (propName in obj){
+		//if( property is a function...)
+			//do something...
+		//else
+			//dont do something...
+//filters out properties that are actions ect.	
+
+/*function report (){
+	displayInventory(); //loops over what is in inventory
+	displayActions();
+	displayScene();
+*/
+
+/*player.location - shows where player (player object could contain a 
+reference to a player location, everytime player moves we have to update 
+new location into player location property...if statement)
+*/
