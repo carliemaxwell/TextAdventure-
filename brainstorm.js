@@ -101,6 +101,25 @@ var gamestart = function(){
 	inputBox.addEventListener('keyup',gameStep);
 }
 
+//how do you know where the player is?
+//make other players
+//pick up other weapons from other players
+//add in lab 10 to run the game
+
+/*var player = {
+var items = [];
+var pickUp = function(item){
+	this.items.push(item);
+}
+var drop = function(){
+	var pos = this.items.indexOf(item);
+	if(pos >=0){
+		this.items.splice(pos,1);
+		}
+	}
+}
+*/
+
 var runSomeTests = function(){
 	
 	var descrip = document.getElementById('descrip');
@@ -114,12 +133,12 @@ var runSomeTests = function(){
 	for (i=0; i<headings.length; i++){
 		console.log(headings[i].innerHTML);
 	}
-	
+
 	var output = document.getElementById('scene');
-	output.innerHTML = 'You and 5 other friends are left on a mysterious island after a nearly fatal plane crash. What will you do to survive?';
+	output.innerHTML = 'You went to a dinner party and have been trapped in the house by the owner';
 	
 	var title = document.querySelectorAll('header>h1');
-	title[0].innerHTML = 'Lost';
+	title[0].innerHTML = 'Clue take 2';
 
 	var listOfItems = document.querySelector('#inventory > ul');
         var item = document.createElement('li');
@@ -183,5 +202,49 @@ var runSomeTests = function(){
 };
 
 window.onload = runSomeTests;
+<<<<<<< HEAD
 window.onload = gameStart;
 
+=======
+
+//player[action](target)
+
+/* var connection = [
+	[0,0,0],
+];
+map.connect('beach','jungle'); //connects the 3 to eachother
+map.connect('jungle','cliff');
+map.connect('cliff','beach');
+*/
+
+/*var map = {
+	locations:[],
+	connections: [..],
+	connect: function(loc1,loc2){
+		var loc1num = this.locations.indexOf(loc1);
+		var loc2num = this.locations.indexOf(loc2);
+		this.connections[loc1num][loc2num] = 1;
+		this.connections[loc2num][loc1num] = 1;
+	}
+}
+*/
+
+//loop through properties of an object
+	//for (propName in obj){
+		//if( property is a function...)
+			//do something...
+		//else
+			//dont do something...
+//filters out properties that are actions ect.	
+
+/*function report (){
+	displayInventory(); //loops over what is in inventory
+	displayActions();
+	displayScene();
+*/
+
+/*player.location - shows where player (player object could contain a 
+reference to a player location, everytime player moves we have to update 
+new location into player location property...if statement)
+*/
+>>>>>>> ddcd2f70cb054a0ab1a354000858a63afde9a5b7
