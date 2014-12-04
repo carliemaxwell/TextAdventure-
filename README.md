@@ -3,6 +3,7 @@ TextAdventure-Base
 
 An example that offers ideas on how to get started with a JavaScript-based HTML5 text adventure game.
 
+title: 'The Coffin'
 items: knife, flashlight, 2 keys (one for the safe, one inside the safe to open the coffin)
 actions: move/goto, jump, pickup, drop, shine, stab
 locations: bathroom, bedroom, dining hall, hallway, kitchen, ball room, living room, basement
@@ -17,3 +18,5 @@ kitchen - safe with body key inside
 ball room - safe key located under table
 living room
 basement - where 3 headed snake resides
+
+ending: if you dont pick up correct items along the way (flashlight/knife) you will be defeated by one of the protectors, otherwise you will make it to the body where you will find an empty coffin, the game will then print To Be Continued..
