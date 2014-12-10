@@ -1,22 +1,14 @@
 TextAdventure-Base
-==================
+=
+
 
 An example that offers ideas on how to get started with a JavaScript-based HTML5 text adventure game.
 
-title: 'The Coffin'
-items: knife, flashlight, 2 keys (one for the safe, one inside the safe to open the coffin)
-actions: move/goto, jump, pickup, drop, shine, stab
-locations: bathroom, bedroom, dining hall, hallway, kitchen, ball room, living room, basement
-
-plot: invited to dinner party at a house and the owner tells you that a dead body was buried somewhere inside the house - up to you to find it - along the way you run into 2 protectors of the body (ghost and 3 headed snake) - ghost is defeated by shining the light on him and the snake is defeated by stabbing it in the eyes - body is locked away so you need to find a key which will be located in a safe (need to find the safe key first)
-
-bathroom - knife will be located behind the toilet
-bedroom - flashlight will be located in top drawer
-dining hall - ghost lives on top of chandelier
-hallway
-kitchen - safe with body key inside
-ball room - safe key located under table
-living room
-basement - where 3 headed snake resides
-
-ending: if you dont pick up correct items along the way (flashlight/knife) you will be defeated by one of the protectors, otherwise you will make it to the body where you will find an empty coffin, the game will then print To Be Continued..
+Tips
+-
+* [11/25] __Ask yourself this question: How will I keep track of the where the player is currently located?__ There are several ways, but perhaps the player knows - that is, the player object could have a property that indicates the current location.
+* [11/26] __Make sure the player can pick up only items that are nearby.__ Currently, the player can pick up anything they wish, even items that aren't in the game! Clearly this is silly - how can you fix the situation? As long as you have dealt with the question above (where is the player?), then you can modify the pickup function to check whether the desired item is in the contents of the player's current location - if so, the pick it up as before, but if not then display an appropriate message and return.
+* [12/2] __Don't hesitate to add functions to your Location objects.__ For example, in order to support the player's pickup function, it might be convenient if each Location had functions that could (a) check whether a given item is present, (b) remove an item, or (c) put an item back into the location. Then, when the player tries to "pickup" an item, the pickup function could first check if current location "has" the item - if it does, then "remove" that item from the location before adding it to the player's items list.
+* [12/3] __The player will need some way to change locations, perhaps a "move" or "goto" function.__ So the player could enter a command like "goto Beach". This function should do at least two basic things - check whether the desired location is adjacent to the current location (if not, then tell the user so), and then update the player's current location if appropriate. If you have other criteria (e.g., each room requires a certain key) then you will need to add some additional logic here.
+* [12/3] __Consider presenting the user with a list of adjacent locations.__ At each step of the game, after describing the current location, you might also tell the user where they can go from here. You could use the adjancency matrix (like we did in lab) to get the list of all neighboring locations.
+* [12/3] __It will be easier to implement the suggestions above if you write a function for checking whether two locations are adjacent.__ This also goes along with the principle of "modular design" that we talked about in class.
