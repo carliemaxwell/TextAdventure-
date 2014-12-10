@@ -211,6 +211,10 @@ var runSomeTests = function(){
         listOfActions.appendChild(action);
         action.appendChild(walk);
 };
+//entities - ghost, 3 headed snake
+//need to find key to unlock safe to reveal another key
+//key inside safe will unlock coffin dead body is buried in
+
 
 window.onload = runSomeTests;
 <<<<<<< HEAD
