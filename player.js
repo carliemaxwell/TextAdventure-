@@ -25,9 +25,9 @@ var player = {
 */
 player.pickup = function(item) {
         // check whether the current location has the item
-    if(Location.has(item)){
+    if(this.location.has(item)){
                  // remove the item from the current location
-            Location.remove(item);
+            this.location.remove(item);
             this.items.push(item);
     }
     // otherwise
@@ -42,11 +42,12 @@ player.pickup = function(item) {
   Put an item back into the world, removing it from the player.
   Helpful functions: Location.put, displayFeedback
 */
+//fix text talking about description
 player.drop = function(item) {
     var pos = this.items.indexOf(item);
     if (pos >= 0) {
         this.items.splice(pos, 1);
-        Location.put(item);
+        this.location.put(item);
         // after removing item from the player, add it to the current location
     } else {
         displayFeedback(player.name+" doesn't have the "+item.name);
@@ -60,23 +61,25 @@ player.drop = function(item) {
 */
 player.go = function(locName) {
     // set this to be the index of the new location
-    var locNum = Location.indexOfLocation(locName); 
+    var locNum = indexOfLocation(map, locName); 
     // check whether the desired location is in the list of locations in the map
     if(locNum === -1) {
         displayFeedback(locName+ " is not a valid location");
     }
     // check if the player is already at the location they asked for
             // display feedback indicating the player is already here
-    if(player.location.name === locName){
+    else if(player.location.name === locName){
         displayFeedback("You are already in this location");
     }
         // otherwise check if the desired location is connected to the current location
-    if(! Location.isConnected(map,Location.indexOfLocation(player.location.name),locNum)){
+    else if(! isConnected(map,indexOfLocation(map, player.location.name),locNum)){ //everytime i call index need map
         displayFeedback("These 2 rooms aren't connected");
     }
+    //need to clear message if works
+    //fix description, description property is a function so you want to call a function instead of just putting it in page as a string
     // if so, set the current location to be the new location
     else{
-        player.location = map[locNum];
+        player.location = map.locations[locNum];
     }
             // or... you might first perform other checks, like whether the player has the required items
         // otherwise

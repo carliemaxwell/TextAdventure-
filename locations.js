@@ -18,7 +18,7 @@ function Location(name, descrip, initialItems, monster) {
     this.description = function() {
         return descrip;
     }
-    this.items = initialItems;
+    this.items = initialItems; //search command to show objects
     this.hasMonster = monster;
     // add any additional properties that you need, suggested ideas include:
     //  - a list of prerequisite items needed to enter the location
@@ -58,15 +58,14 @@ Location.prototype.put = function(item) {
     map object - then we could call them as map.connect(from,to)
 */ 
 
-indexOfLocation = function(map, locName) {
+var indexOfLocation = function(map, locName) {
     var x;
-    for (x in map){
-        if(map[x].name === locName) {
-            return x;
+    for (var i = 0; i < map.locations.length; i ++){
+        if(map.locations[i].name === locName) {
+            return i;
         }
-        else
-            return -1;
     }
+            return -1;
     // this should work like indexOf, but searches for a location whose name matches
 }
 

@@ -40,7 +40,7 @@ function gameStart() {
         }
     });
     player.name = 'Carlie Maxwell';
-    player.location = 'Beach';
+    player.location = map.locations[0]; //'bedroom';
     displayFeedback('start game');
 
     // we should also perform a few other start-of-game tasks, such as
@@ -138,7 +138,7 @@ function displayScene() {
 */
 function displayFeedback(msg) {
     var scene = document.querySelector("#feedback");
-    scene.textContent = msg; drawAttention(scene);
+    scene.textContent = msg;
 }
 
 /*
