@@ -44,19 +44,30 @@ var test = function (rowNum){ //when given row num it will give you the horizont
 test(0); //put num 0 into the function for purpose of lab but how wouldi make it so it works for any input?
 
 var player = {
+	name : "",
 	loc : function(location){
-	}		
-	items = [];
-	pickup : function(item){
-		this.items.push(items.toLowerCase());
-	}
-	drop : function(item) {
-	var i = this.items.indexOf(item.toLowerCase());
+	},	
+	items = []
+}
+
+player.pickup : function(item){
+	// first check if the current location contains item
+
+	  // if so, then remove it from the location
+
+	  //  and add it to my items
+	  this.items.push(item);
+	  // if not, display a message to the user
+
+}
+
+player.drop : function(item) {
+	var i = this.items.indexOf(item);
 		if( i >= 0) {
 			this.items.splice(x,1);
 		}
 	}
-};
+
 
 if(input == 'pickup'){ //how would i get these to run?
 	pickup();
