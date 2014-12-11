@@ -39,9 +39,9 @@ function gameStart() {
             gameStep(this.value);
         }
     });
-    player.name = 'Carlie Maxwell';
-    player.location = map.locations[0]; //'bedroom';
+    player.location = map.locations[5]; //'living room w/ gun';
     displayFeedback('start game');
+    displayScene();
 
     // we should also perform a few other start-of-game tasks, such as
     //  - set the player's starting propreties (location and any initial items)
@@ -64,6 +64,7 @@ function gameStep(input) {
     Parse the user's input and use it to customize certain player properties.
 */
 function customizePlayer(input) {
+      player.name = input;
     // here we should set the player's name and/or other properties
 }
 
@@ -128,8 +129,9 @@ function displayInventory() {
 */
 function displayScene() {
     var scene = document.querySelector("#descrip");
-    var description = player.location.description;
+    var description = this.player.location.description();
     scene.textContent = description;
+    console.log("check description");
     // Hmmm... need to implement this function...
 }
 

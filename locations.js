@@ -13,13 +13,14 @@ write your own code from scratch, you are not required to use my code at all.
     You might need to add more parameters to this constructor
     if there are other properties that need initial values.
 */
-function Location(name, descrip, initialItems, monster) {
+function Location(name, descrip, initialItems, monster, locked) {
     this.name = name;
     this.description = function() {
         return descrip;
     }
     this.items = initialItems; //search command to show objects
     this.hasMonster = monster;
+    this.isLocked = locked;
     // add any additional properties that you need, suggested ideas include:
     //  - a list of prerequisite items needed to enter the location
     //  - boolean variable to indicate locked/unlocked
@@ -88,19 +89,22 @@ function disconnect(map, from, to) {
     map.connections[from][to] = 0;
     map.connections[to][from] = 0;
 }
-
 // sample map - like the one you created during lab
 var map = {
     locations: [
-        new Location("bedroom", "You are in a bedroom.", ["safe", "coffin key"], false),
-        new Location("bathroom", "You are in a bathroom.", ["key for safe"], false),
-        new Location("den", "You are in a den.", [""], true),
-        new Location("kitchen", "You are in a kitchen", ["knife"], false),
-        new Location("hallway", "You are in a hallway", [""], true),
-        new Location("living room", "you are in a living room", ["gun"], false),
-        new Location("dining room", "you are in a dining room", [""], true),
-        new Location("billiard room", "you are in a billiard room", ["coffin", "hand grenade"], false),
+        new Location("bedroom", "You are in a bedroom.", ["coffin key"], false, true),
+        new Location("bathroom", "You are in a bathroom.", ["bedroom key"], false, false),
+        new Location("den", "You are in a den.", [""], true, false),
+        new Location("kitchen", "You are in a kitchen", ["knife"], false, false),
+        new Location("hallway", "You are in a hallway", [""], true, false),
+        new Location("living room", "you are in a living room", ["gun"], false, false),
+        new Location("dining room", "you are in a dining room", [""], true, false),
+        new Location("billiard room", "you are in a billiard room", ["coffin", "grenade"], false, false),
     ],
+    //need to make the strings into the object constructors (keybedroom, knife, gun..)
+        //changed for testing purposes
+    //add in items.js to html file
+
     connections: [ [0, 0, 0, 0, 0, 0, 0, 0], 
         [0, 0, 0, 0, 0, 0, 0, 0], 
         [0, 0, 0, 0, 0, 0, 0, 0], 

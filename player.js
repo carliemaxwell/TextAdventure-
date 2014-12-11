@@ -29,11 +29,12 @@ player.pickup = function(item) {
                  // remove the item from the current location
             this.location.remove(item);
             this.items.push(item);
+            displayFeedback("You picked up the "+item);
     }
     // otherwise
         // display feedback indicating that the item is not present
     else {
-        displayFeedback("The "+item.name+ "is not in this location");
+        displayFeedback("The "+item+" is not in this location");
     }    
 
 };
@@ -50,7 +51,7 @@ player.drop = function(item) {
         this.location.put(item);
         // after removing item from the player, add it to the current location
     } else {
-        displayFeedback(player.name+" doesn't have the "+item.name);
+        displayFeedback(player.name+" doesn't have the "+item);
         // display feedback indicating that the player doesn't have item
     }
 };
@@ -74,6 +75,14 @@ player.go = function(locName) {
         // otherwise check if the desired location is connected to the current location
     else if(! isConnected(map,indexOfLocation(map, player.location.name),locNum)){ //everytime i call index need map
         displayFeedback("These 2 rooms aren't connected");
+    }
+
+    else if(map.locations[locNum].hasMonster){
+        displayFeedback("Monster inside the "+locName+". Go find a weapon.");
+    }
+
+    else if(map.locations[locNum].isLocked){
+        displayFeedback("This door is locked. Find the key.");
     }
     //need to clear message if works
     //fix description, description property is a function so you want to call a function instead of just putting it in page as a string
