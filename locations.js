@@ -92,7 +92,7 @@ function disconnect(map, from, to) {
 // sample map - like the one you created during lab
 var map = {
     locations: [
-        new Location("bedroom", "You are in a bedroom. You can move to bathroom or den. There is a 'secret key' in the room", ["secret key"], false, true),
+        new Location("bedroom", "You are in a bedroom. You can move to bathroom. There is a 'secret key' in the room", ["secret key"], false, true),
         new Location("bathroom", "You are in a bathroom. You can move to the bedroom or den. There is a 'bedroom key' and a 'pipe' in the room", ["bedroom key", "pipe"], false, false),
         new Location("den", "You are in a den. You can move to the bathroom or kitchen.", [""], true, false),
         new Location("kitchen", "You are in a kitchen. You can move to the den, hallway, or dining room. There is a knife in the room.", ["knife"], false, false),
