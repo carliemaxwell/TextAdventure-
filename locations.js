@@ -93,14 +93,14 @@ function disconnect(map, from, to) {
 var map = {
     locations: [
         new Location("bedroom", "You are in a bedroom. You can move to bathroom or den. There is a 'secret key' in the room", ["secret key"], false, true),
-        new Location("bathroom", "You are in a bathroom.", ["bedroom key", "pipe"], false, false),
-        new Location("den", "You are in a den.", [""], true, false),
-        new Location("kitchen", "You are in a kitchen", ["knife"], false, false),
-        new Location("hallway", "You are in a hallway", [""], true, false),
-        new Location("living room", "you are in a living room", ["gun"], false, false),
-        new Location("dining room", "you are in a dining room", [""], true, false),
-        new Location("billiard room", "you are in a billiard room", ["grenade"], false, false),
-        new Location("secret", "the dead body is inside here, you won!", [""], false, true),
+        new Location("bathroom", "You are in a bathroom. You can move to the bedroom or den. There is a 'bedroom key' and a 'pipe' in the room", ["bedroom key", "pipe"], false, false),
+        new Location("den", "You are in a den. You can move to the bathroom or kitchen.", [""], true, false),
+        new Location("kitchen", "You are in a kitchen. You can move to the den, hallway, or dining room. There is a knife in the room.", ["knife"], false, false),
+        new Location("hallway", "You are in a hallway. You can move to the kitchen or living room.", [""], true, false),
+        new Location("living room", "You are in a living room. You can move to the dining room or the hallway. There is a gun in the room.", ["gun"], false, false),
+        new Location("dining room", "You are in a dining room. You can move to the living room, kitchen, or billiard room.", [""], true, false),
+        new Location("billiard room", "You are in a billiard room. You can move to the dining room. There is a grenade in the room.", ["grenade"], false, false),
+        new Location("secret", "You saved your friend! You win!", [""], false, true),
     ],
     //need to make the strings into the object constructors (keybedroom, knife, gun..)
         //changed for testing purposes
