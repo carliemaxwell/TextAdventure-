@@ -23,6 +23,46 @@ var player = {
     Take an item from the world and add it to the player.
     Helpful functions: Location.has, Location.remove, displayFeedback
 */
+player.unlock = function(locName) {
+    var locNum = indexOfLocation(map, locName);
+    var has = false;
+    for(var i = 0; i < player.items.length; i ++) {
+        token = player.items[i].split(" ");
+        if(token[0] === locName){
+            has = true; 
+        }
+    }
+    if(isConnected(map,indexOfLocation(map, player.location.name),locNum) && has) {
+        map.locations[locNum].isLocked = false;
+        displayFeedback(player.name+" has unlocked the "+locName);
+    }
+    else
+        displayFeedback("You must be outside the room to unlock the door.")
+}
+
+player.fightin = function(locName) {
+    var has = false;
+    var weapons = ["gun", "grenade", "knife", "pipe"];
+    for(var i = 0; i < player.items.length; i++) {
+        for(var j = 0; j<weapons.length; j++) {
+            if(player.items[i] == weapons[j]) {
+                has = true;
+                var weaponName = player.items[i];
+            }
+        }
+    }
+    var locNum = indexOfLocation(map, locName);
+    if(isConnected(map, indexOfLocation(map, player.location.name), locNum) && has) {
+        map.locations[locNum].hasMonster = false;
+        displayFeedback("You have defeated the monster and used up the "+weaponName);
+        player.drop(weaponName);
+        Location.prototype.remove(weaponName);
+    }
+}
+
+
+
+
 player.pickup = function(item) {
         // check whether the current location has the item
     if(this.location.has(item)){
@@ -89,6 +129,7 @@ player.go = function(locName) {
     // if so, set the current location to be the new location
     else{
         player.location = map.locations[locNum];
+        displayFeedback("You have successfully moved rooms")
     }
             // or... you might first perform other checks, like whether the player has the required items
         // otherwise

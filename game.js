@@ -39,7 +39,7 @@ function gameStart() {
             gameStep(this.value);
         }
     });
-    player.location = map.locations[5]; //'living room w/ gun';
+    player.location = map.locations[1]; //'living room w/ gun';
     displayFeedback('start game');
     displayScene();
 

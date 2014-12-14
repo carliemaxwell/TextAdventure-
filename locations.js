@@ -92,14 +92,15 @@ function disconnect(map, from, to) {
 // sample map - like the one you created during lab
 var map = {
     locations: [
-        new Location("bedroom", "You are in a bedroom.", ["coffin key"], false, true),
-        new Location("bathroom", "You are in a bathroom.", ["bedroom key"], false, false),
+        new Location("bedroom", "You are in a bedroom. You can move to bathroom or den. There is a 'secret key' in the room", ["secret key"], false, true),
+        new Location("bathroom", "You are in a bathroom.", ["bedroom key", "pipe"], false, false),
         new Location("den", "You are in a den.", [""], true, false),
         new Location("kitchen", "You are in a kitchen", ["knife"], false, false),
         new Location("hallway", "You are in a hallway", [""], true, false),
         new Location("living room", "you are in a living room", ["gun"], false, false),
         new Location("dining room", "you are in a dining room", [""], true, false),
-        new Location("billiard room", "you are in a billiard room", ["coffin", "grenade"], false, false),
+        new Location("billiard room", "you are in a billiard room", ["grenade"], false, false),
+        new Location("secret", "the dead body is inside here, you won!", [""], false, true),
     ],
     //need to make the strings into the object constructors (keybedroom, knife, gun..)
         //changed for testing purposes
@@ -112,6 +113,7 @@ var map = {
         [0, 0, 0, 0, 0, 0, 0, 0], 
         [0, 0, 0, 0, 0, 0, 0, 0], 
         [0, 0, 0, 0, 0, 0, 0, 0], 
+        [0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0]
     ] 
 };
@@ -125,6 +127,7 @@ connect(map, 3, 6);
 connect(map, 4, 5);
 connect(map, 5, 6);
 connect(map, 6, 7);
+connect(map, 7, 8);
 
 // little test function so we can get used to the matrix and see if it works
 function testMap() {
